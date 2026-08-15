@@ -1358,6 +1358,15 @@
     const Contact = () => {
       const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
       const [submitted, setSubmitted] = React.useState(false);
+      const [copiedField, setCopiedField] = React.useState(null);
+
+      const handleCopyFallback = (text, field) => () => {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).catch(() => {});
+        }
+        setCopiedField(field);
+        setTimeout(() => setCopiedField(null), 2000);
+      };
 
       const handleSubmit = (e) => {
         e.preventDefault();
@@ -1389,7 +1398,8 @@
               <div className="lg:col-span-5 space-y-6">
                 <a
                   href="mailto:lakshmipradha2185@gmail.com"
-                  className="glass-panel glass-panel-hover p-6 rounded-2xl flex items-center gap-5 group block"
+                  onClick={handleCopyFallback('lakshmipradha2185@gmail.com', 'email')}
+                  className="glass-panel glass-panel-hover p-6 rounded-2xl flex items-center gap-5 group block relative"
                 >
                   <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-400/20 text-violet-300 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                     ✉️
@@ -1400,11 +1410,17 @@
                       lakshmipradha2185@gmail.com
                     </p>
                   </div>
+                  {copiedField === 'email' && (
+                    <span className="absolute top-3 right-3 text-[10px] font-mono font-bold text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-2 py-1 rounded-full">
+                      COPIED ✓
+                    </span>
+                  )}
                 </a>
 
                 <a
                   href="tel:7548872516"
-                  className="glass-panel glass-panel-hover p-6 rounded-2xl flex items-center gap-5 group block"
+                  onClick={handleCopyFallback('+91 7548872516', 'phone')}
+                  className="glass-panel glass-panel-hover p-6 rounded-2xl flex items-center gap-5 group block relative"
                 >
                   <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-400/20 text-violet-300 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                     📞
@@ -1415,6 +1431,11 @@
                       +91 7548872516
                     </p>
                   </div>
+                  {copiedField === 'phone' && (
+                    <span className="absolute top-3 right-3 text-[10px] font-mono font-bold text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-2 py-1 rounded-full">
+                      COPIED ✓
+                    </span>
+                  )}
                 </a>
 
                 <div className="pt-4 space-y-4">
