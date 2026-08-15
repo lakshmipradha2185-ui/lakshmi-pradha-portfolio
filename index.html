@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G. Lakshmi Pradha | Personal Portfolio</title>
+  <meta name="description" content="Portfolio of G. Lakshmi Pradha — developer and creative technologist exploring data, development and modern digital experiences." />
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="G. Lakshmi Pradha | Personal Portfolio" />
+  <meta property="og:description" content="Developer and creative technologist building ideas into digital experiences." />
+  <meta property="og:image" content="lakshmi-pradha.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='sans-serif' font-weight='bold' fill='%23a78bfa'>LP</text></svg>" />
+
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              bg: '#0A080F',
+              surface: '#110E1A',
+              card: 'rgba(255, 255, 255, 0.03)',
+              border: 'rgba(255, 255, 255, 0.08)',
+              lavender: '#C4B5FD',
+              violet: '#A78BFA',
+              purple: '#8B5CF6',
+              accent: '#7C3AED',
+              muted: '#9CA3AF'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.04)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inline CSS -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A080F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(167, 139, 250, 0.25);
+      border-radius: 4px;
+      border: 2px solid #0A080F;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(167, 139, 250, 0.5);
+    }
+    .custom-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background-color: #C4B5FD;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
+      box-shadow: 0 0 10px rgba(196, 181, 253, 0.8);
+    }
+    .custom-cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(167, 139, 250, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s;
+      backdrop-filter: blur(1px);
+    }
+    body.hovering-clickable .custom-cursor-ring {
+      width: 56px;
+      height: 56px;
+      border-color: rgba(196, 181, 253, 0.9);
+      background-color: rgba(167, 139, 250, 0.08);
+    }
+    body.hovering-clickable .custom-cursor-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #A78BFA;
+    }
+    @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+      .custom-cursor-dot, .custom-cursor-ring {
+        display: none !important;
+      }
+    }
+    .glass-panel {
+      background: rgba(17, 14, 26, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+    .glass-panel-hover {
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-panel-hover:hover {
+      background: rgba(24, 20, 38, 0.85);
+      border-color: rgba(167, 139, 250, 0.35);
+      box-shadow: 0 25px 60px rgba(139, 92, 246, 0.18), 0 0 30px rgba(167, 139, 250, 0.1);
+      transform: translateY(-4px);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 45%, #C4B5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-accent-text {
+      background: linear-gradient(135deg, #C4B5FD 0%, #A78BFA 50%, #8B5CF6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bg-grain {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+    }
+  </style>
+
+  <!-- React 18 & Babel standalone -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-[#0A080F] text-gray-100 font-sans selection:bg-purple-500/30 selection:text-violet-200 antialiased overflow-x-hidden">
+  
+  <div id="root"></div>
+
+  <!-- Complete Interactive Application Code -->
+  <script type="text/babel">
+
+    // 1. SkillsCanvas Component — Interactive Faint Background Grid Nodes
+    const SkillsCanvas = () => {
+      const canvasRef = React.useRef(null);
+
+      React.useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        let animationFrameId;
+        let width = (canvas.width = canvas.parentElement.offsetWidth);
+        let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+        const handleResize = () => {
+          if (!canvas || !canvas.parentElement) return;
+          width = canvas.width = canvas.parentElement.offsetWidth;
+          height = canvas.height = canvas.parentElement.offsetHeight;
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        const mouse = { x: null, y: null, radius: 150 };
+
+        const handleMouseMove = (e) => {
+          const rect = canvas.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        };
+
+        const handleMouseLeave = () => {
+          mouse.x = null;
+          mouse.y = null;
+        };
+
+        canvas.parentElement.addEventListener('mousemove', handleMouseMove);
+        canvas.parentElement.addEventListener('mouseleave', handleMouseLeave);
+
+        const numPoints = Math.min(Math.floor((width * height) / 9500), 50);
+        const points = [];
+
+        for (let i = 0; i < numPoints; i++) {
+          points.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6,
+            radius: Math.random() * 1.8 + 1,
+          });
+        }
+
+        const draw = () => {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let i = 0; i < points.length; i++) {
+            const p1 = points[i];
+            p1.x += p1.vx;
+            p1.y += p1.vy;
+
+            if (p1.x < 0 || p1.x > width) p1.vx *= -1;
+            if (p1.y < 0 || p1.y > height) p1.vy *= -1;
+
+            if (mouse.x !== null && mouse.y !== null) {
+              const dx = mouse.x - p1.x;
+              const dy = mouse.y - p1.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < mouse.radius) {
+                const angle = Math.atan2(dy, dx);
+                const force = (mouse.radius - dist) / mouse.radius;
+                p1.x -= Math.cos(angle) * force * 1.8;
+                p1.y -= Math.sin(angle) * force * 1.8;
+              }
+            }
+
+            ctx.beginPath();
+            ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(196, 181, 253, 0.35)';
+            ctx.fill();
+
+            for (let j = i + 1; j < points.length; j++) {
+              const p2 = points[j];
+              const dx = p1.x - p2.x;
+              const dy = p1.y - p2.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+
+              if (dist < 125) {
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                const alpha = (1 - dist / 125) * 0.15;
+                ctx.strokeStyle = `rgba(167, 139, 250, ${alpha})`;
+                ctx.lineWidth = 0.8;
+                ctx.stroke();
+              }
+            }
+          }
+
+          animationFrameId = requestAnimationFrame(draw);
+        };
+
+        draw();
+
+        return () => {
+          cancelAnimationFrame(animationFrameId);
+          window.removeEventListener('resize', handleResize);
+          if (canvas && canvas.parentElement) {
+            canvas.parentElement.removeEventListener('mousemove', handleMouseMove);
+            canvas.parentElement.removeEventListener('mouseleave', handleMouseLeave);
+          }
+        };
+      }, []);
+
+      return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50 z-0" />;
+    };
+
+    // 2. CustomCursor Component
+    const CustomCursor = () => {
+      const dotRef = React.useRef(null);
+      const ringRef = React.useRef(null);
+
+      React.useEffect(() => {
+        const dot = dotRef.current;
+        const ring = ringRef.current;
+        if (!dot || !ring) return;
+
+        let mouseX = -100;
+        let mouseY = -100;
+        let ringX = -100;
+        let ringY = -100;
+
+        const onMouseMove = (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+
+          const target = e.target;
+          const isClickable = target.closest('a, button, input, textarea, select, .clickable, .project-card, .skill-card');
+          if (isClickable) {
+            document.body.classList.add('hovering-clickable');
+          } else {
+            document.body.classList.remove('hovering-clickable');
+          }
+        };
+
+        let animationFrame;
+        const render = () => {
+          ringX += (mouseX - ringX) * 0.18;
+          ringY += (mouseY - ringY) * 0.18;
+          ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+          animationFrame = requestAnimationFrame(render);
+        };
+
+        window.addEventListener('mousemove', onMouseMove);
+        animationFrame = requestAnimationFrame(render);
+
+        return () => {
+          window.removeEventListener('mousemove', onMouseMove);
+          cancelAnimationFrame(animationFrame);
+        };
+      }, []);
+
+      return (
+        <React.Fragment>
+          <div ref={dotRef} className="custom-cursor-dot hidden md:block" />
+          <div ref={ringRef} className="custom-cursor-ring hidden md:block" />
+        </React.Fragment>
+      );
+    };
+
+    // 3. ResumeModal Component
+    const ResumeModal = ({ isOpen, onClose }) => {
+      if (!isOpen) return null;
+
+      return (
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-md transition-all duration-300">
+          <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#110E1A] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.02]">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-violet-500/20 text-violet-300 flex items-center justify-center font-semibold text-sm">
+                  LP
+                </div>
+                <div>
+                  <h3 className="text-lg font-display font-bold text-white">G. Lakshmi Pradha — Resume</h3>
+                  <p className="text-xs text-gray-400">PRIST University</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="resume.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-xs font-semibold rounded-lg bg-violet-600 hover:bg-violet-500 text-white flex items-center gap-1.5 transition-all shadow-lg shadow-violet-600/20"
+                >
+                  <span>OPEN FULL PAGE</span>
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+                <button
+                  onClick={onClose}
+                  className="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+                  aria-label="Close modal"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+              </div>
+            </div>
+
+            <div className="flex-1 w-full bg-white overflow-hidden min-h-[500px]">
+              <iframe
+                src="resume.html"
+                title="Resume View"
+                className="w-full h-full min-h-[550px] border-0"
+              />
+            </div>
+
+            <div className="flex items-center justify-between px-6 py-3 border-t border-white/10 bg-white/[0.02] text-xs text-gray-400">
+              <span>Official Resume Snapshot — G. Lakshmi Pradha</span>
+              <button
+                onClick={onClose}
+                className="px-4 py-1.5 rounded-md border border-white/10 hover:bg-white/10 text-gray-300 transition-colors"
+              >
+                Close Preview
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // 4. Navbar Component
+    const Navbar = ({ onOpenResumeModal, activeSection }) => {
+      const [scrolled, setScrolled] = React.useState(false);
+      const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+      React.useEffect(() => {
+        const handleScroll = () => {
+          setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      const navLinks = [
+        { name: 'HOME', href: '#home', id: 'home' },
+        { name: 'ABOUT', href: '#about', id: 'about' },
+        { name: 'SKILLS', href: '#skills', id: 'skills' },
+        { name: 'EXPERIENCE', href: '#experience', id: 'experience' },
+        { name: 'PROJECTS', href: '#projects', id: 'projects' },
+        { name: 'CERTIFICATIONS', href: '#certifications', id: 'certifications' },
+        { name: 'EDUCATION', href: '#education', id: 'education' },
+        { name: 'RESUME', href: '#resume', id: 'resume' },
+        { name: 'CONTACT', href: '#contact', id: 'contact' },
+      ];
+
+      return (
+        <header
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+            scrolled
+              ? 'bg-[#0A080F]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl shadow-purple-950/20'
+              : 'bg-transparent py-5'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <a href="#home" className="group flex items-center gap-2">
+              <span className="font-display font-black text-2xl tracking-tighter text-white group-hover:text-violet-300 transition-colors">
+                LP<span className="text-violet-400">.</span>
+              </span>
+            </a>
+
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`text-xs font-semibold tracking-wider transition-colors relative py-1 ${
+                      isActive ? 'text-violet-300 font-bold' : 'text-gray-300 hover:text-violet-300'
+                    } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-violet-400 after:transition-all ${
+                      isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                );
+              })}
+            </nav>
+
+            <div className="hidden sm:flex items-center gap-4">
+              <a
+                href="#contact"
+                className="px-5 py-2 text-xs font-bold tracking-wider rounded-full bg-white/5 border border-violet-500/30 hover:border-violet-400 text-white hover:bg-violet-600/20 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)] transition-all duration-300 flex items-center gap-1.5"
+              >
+                <span>LET'S TALK</span>
+                <span className="text-violet-400">↗</span>
+              </a>
+            </div>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 text-gray-300 hover:text-white focus:outline-none"
+              aria-label="Toggle Navigation Menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          {mobileMenuOpen && (
+            <div className="lg:hidden fixed inset-x-0 top-[65px] bg-[#110E1A]/95 backdrop-blur-2xl border-b border-white/10 p-6 shadow-2xl transition-all">
+              <div className="flex flex-col gap-3">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-sm font-semibold tracking-wider text-gray-200 hover:text-violet-400 py-2 border-b border-white/5"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="mt-4 w-full py-3 text-center text-xs font-bold tracking-wider rounded-xl bg-violet-600 text-white shadow-lg shadow-violet-600/30"
+                >
+                  LET'S TALK ↗
+                </a>
+              </div>
+            </div>
+          )}
+        </header>
+      );
+    };
+
+    // 5. Hero Component — Optimized Viewport Height (8-12% height reduction)
+    const Hero = ({ onOpenResumeModal }) => {
+      return (
+        <section id="home" className="relative min-h-[85vh] pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0A080F] via-[#110E1A] to-[#0A080F]">
+          
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute top-1/3 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute inset-0 bg-grain pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+              
+              {/* Left Column Text & Branding */}
+              <div className="lg:col-span-7 flex flex-col items-start text-left">
+                
+                {/* 1. Status Indicator Badge */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-violet-500/30 backdrop-blur-md mb-4 shadow-xl relative z-20">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 absolute" />
+                  <span className="text-[11px] font-bold tracking-wider text-violet-200 uppercase pl-3">
+                    ● OPEN TO INTERNSHIPS & OPPORTUNITIES
+                  </span>
+                </div>
+
+                {/* 2. Small Category Label */}
+                <p className="text-[11px] sm:text-xs font-semibold tracking-widest text-violet-400 uppercase mb-2">
+                  AI & DATA SCIENCE · DEVELOPMENT · CREATIVITY
+                </p>
+
+                {/* 3. Identity Name Headline */}
+                <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-[1.08] mb-4">
+                  HI, I'M <br />
+                  <span className="gradient-text font-black">LAKSHMI PRADHA.</span>
+                </h1>
+
+                {/* 4. Main Brand Statement */}
+                <div className="mb-4">
+                  <h2 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-violet-200/90 tracking-wide leading-snug uppercase">
+                    BUILDING IDEAS <br className="hidden sm:block" />
+                    <span className="gradient-accent-text font-black">INTO DIGITAL EXPERIENCES.</span>
+                  </h2>
+                </div>
+
+                {/* 5. Short Description */}
+                <p className="text-sm text-gray-300 max-w-xl font-normal leading-relaxed mb-6">
+                  Developer and creative technologist who combines technology, data, and creativity to turn ideas into practical and engaging digital solutions.
+                </p>
+
+                {/* 6. & 7. Visible CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                  <a
+                    href="#projects"
+                    className="w-full sm:w-auto px-6 py-3 text-xs font-bold tracking-widest uppercase rounded-xl bg-violet-600 hover:bg-violet-500 text-white transition-all duration-300 shadow-[0_0_25px_rgba(139,92,246,0.4)] hover:shadow-[0_0_35px_rgba(139,92,246,0.6)] flex items-center justify-center gap-2 group"
+                  >
+                    <span>EXPLORE MY WORK</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+
+                  <a
+                    href="#contact"
+                    className="w-full sm:w-auto px-6 py-3 text-xs font-bold tracking-widest uppercase rounded-xl bg-white/[0.05] border border-white/10 hover:border-violet-400 text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
+                  >
+                    LET'S CONNECT
+                  </a>
+
+                  <button
+                    onClick={onOpenResumeModal}
+                    className="w-full sm:w-auto px-5 py-3 text-xs font-bold tracking-widest uppercase rounded-xl bg-transparent border border-violet-500/30 hover:border-violet-400 text-violet-300 hover:bg-violet-500/10 transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span>DOWNLOAD RESUME</span>
+                  </button>
+                </div>
+
+              </div>
+
+              {/* Right Column Profile Card — Scaled for Perfect Viewport Height */}
+              <div className="lg:col-span-5 flex justify-center items-center">
+                <div className="relative group w-full max-w-xs sm:max-w-sm">
+                  
+                  <div className="absolute -inset-4 bg-gradient-to-r from-violet-600/25 via-purple-500/15 to-indigo-600/25 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-80 animate-pulse-glow" />
+
+                  <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-violet-400/80 rounded-tl-lg" />
+                  <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-violet-400/80 rounded-tr-lg" />
+                  <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-violet-400/80 rounded-bl-lg" />
+                  <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-violet-400/80 rounded-br-lg" />
+
+                  <div className="relative rounded-2xl overflow-hidden p-2.5 bg-gradient-to-b from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] animate-float">
+                    <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-violet-950/20 via-transparent to-[#0A080F]">
+                      <img
+                        src="lakshmi-pradha.png"
+                        alt="G. Lakshmi Pradha"
+                        className="w-full h-[340px] sm:h-[400px] object-cover object-top filter contrast-[1.02] brightness-[1.01] transition-transform duration-700 group-hover:scale-[1.02]"
+                      />
+                    </div>
+
+                    <div className="absolute bottom-5 left-5 right-5 p-3.5 rounded-xl bg-[#110E1A]/90 backdrop-blur-md border border-white/10 shadow-2xl flex items-center justify-between">
+                      <div>
+                        <h3 className="text-sm font-display font-bold text-white">G. Lakshmi Pradha</h3>
+                        <p className="text-xs text-violet-300 font-medium">Developer & Creative Technologist</p>
+                      </div>
+                      <div className="w-7 h-7 rounded-lg bg-violet-600/20 border border-violet-400/30 flex items-center justify-center text-violet-300 text-xs font-bold font-mono">
+                        LP
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 6. About Component
+    const About = () => {
+      const interests = [
+        'Artificial Intelligence',
+        'Data Science',
+        'Data Analysis',
+        'Web Development',
+        'Creative Design',
+        'Problem Solving',
+      ];
+
+      const journeySteps = [
+        { step: '01', title: 'LEARN', desc: 'Acquiring theoretical foundations in AI, Data Science & web engineering.' },
+        { step: '02', title: 'BUILD', desc: 'Creating functional web apps, chatbots & analytical Excel/Python projects.' },
+        { step: '03', title: 'EXPLORE', desc: 'Experimenting with APIs, data insights & modern frameworks.' },
+        { step: '04', title: 'CREATE', desc: 'Delivering polished digital experiences that connect with users.' },
+      ];
+
+      return (
+        <section id="about" className="relative py-28 bg-[#0A080F] overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-96 h-96 bg-violet-900/10 rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">01 / ABOUT</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+                A LITTLE ABOUT ME<span className="text-violet-400">.</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+              <div className="lg:col-span-7 glass-panel p-8 sm:p-10 rounded-3xl relative">
+                <h3 className="font-display font-bold text-2xl text-white mb-6 leading-snug">
+                  "I combine technology, data and creativity to turn ideas into practical digital experiences."
+                </h3>
+                
+                <div className="space-y-4 text-gray-300 text-base leading-relaxed">
+                  <p>
+                    I study at <span className="text-violet-300 font-semibold">PRIST University</span>.
+                  </p>
+                  <p>
+                    I enjoy exploring technology, working with data, building web applications and turning complex concepts into clean, functional solutions.
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <p className="text-xs font-bold tracking-wider text-violet-400 uppercase mb-4">PERSONALITY PILLARS</p>
+                  <div className="flex flex-wrap gap-2.5">
+                    {['Curious', 'Creative', 'Adaptable', 'Practical', 'Continuous Learner'].map((trait) => (
+                      <span
+                        key={trait}
+                        className="px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-400/20 text-xs font-semibold text-violet-200"
+                      >
+                        ✦ {trait}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 glass-panel p-8 sm:p-10 rounded-3xl">
+                <p className="text-xs font-bold tracking-wider text-violet-400 uppercase mb-6">AREAS OF INTEREST</p>
+                <div className="space-y-3">
+                  {interests.map((interest, idx) => (
+                    <div
+                      key={interest}
+                      className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.04] transition-all group"
+                    >
+                      <span className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">{interest}</span>
+                      <span className="text-xs font-mono text-violet-400/60 group-hover:text-violet-300">0{idx + 1}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="text-center mb-8">
+                <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-1">THE DEVELOPMENT CYCLE</p>
+                <h3 className="font-display font-bold text-2xl text-white">MY VISUAL JOURNEY</h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {journeySteps.map((item) => (
+                  <div
+                    key={item.step}
+                    className="glass-panel glass-panel-hover p-6 rounded-2xl relative overflow-hidden group"
+                  >
+                    <div className="text-4xl font-display font-black text-violet-500/20 group-hover:text-violet-400/40 transition-colors mb-3">
+                      {item.step}
+                    </div>
+                    <h4 className="font-display font-extrabold text-xl text-white mb-2 flex items-center justify-between">
+                      <span>{item.title}</span>
+                      <span className="text-violet-400 text-base group-hover:translate-x-1 transition-transform">→</span>
+                    </h4>
+                    <p className="text-xs text-gray-400 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 7. BrandStatement Component
+    const BrandStatement = () => {
+      return (
+        <section className="relative py-24 bg-gradient-to-r from-[#0B0A10] via-[#12101F] to-[#0B0A10] border-y border-white/10 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.15),transparent_70%)] pointer-events-none" />
+
+          <div className="max-w-6xl mx-auto px-6 md:px-12 text-center relative z-10">
+            <span className="inline-block text-violet-400 text-4xl font-serif mb-4 opacity-80">“</span>
+            <h2 className="font-display font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
+              I BELIEVE THE BEST IDEAS HAPPEN WHEN <br className="hidden md:block" />
+              <span className="gradient-accent-text">TECHNOLOGY MEETS CREATIVITY.</span>
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-violet-500 to-purple-400 mx-auto rounded-full shadow-[0_0_15px_rgba(167,139,250,0.8)]" />
+            <p className="mt-4 text-xs font-mono uppercase tracking-widest text-gray-400">
+              G. Lakshmi Pradha · Creative Technologist & Developer
+            </p>
+          </div>
+        </section>
+      );
+    };
+
+    // 8. Skills Component
+    const Skills = () => {
+      const skillCategories = [
+        {
+          category: 'PROGRAMMING',
+          icon: '⚡',
+          skills: ['Python', 'HTML', 'CSS', 'JavaScript', 'PHP'],
+        },
+        {
+          category: 'DATA & ANALYTICS',
+          icon: '📊',
+          skills: ['Data Analysis', 'Data Science', 'Basic Machine Learning', 'Pandas', 'NumPy', 'Excel'],
+        },
+        {
+          category: 'DATABASE',
+          icon: '🗄️',
+          skills: ['MySQL', 'SQL'],
+        },
+        {
+          category: 'AI & TECHNOLOGY',
+          icon: '🤖',
+          skills: ['Artificial Intelligence', 'Chatbot Development', 'Prompt Engineering', 'API Integration'],
+        },
+        {
+          category: 'DESIGN',
+          icon: '🎨',
+          skills: ['Graphic Design', 'Logo Design', 'Canva'],
+        },
+        {
+          category: 'PROFESSIONAL',
+          icon: '🤝',
+          skills: ['Communication', 'Critical Thinking', 'Team Collaboration', 'Time Management', 'Adaptability'],
+        },
+      ];
+
+      return (
+        <section id="skills" className="relative py-28 bg-[#0A080F] overflow-hidden">
+          <SkillsCanvas />
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">02 / SKILLS</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+                WHAT I WORK WITH<span className="text-violet-400">.</span>
+              </h2>
+              <p className="text-sm text-gray-400 mt-2 max-w-xl">
+                Core technologies, analytical frameworks, and practical creative tools I use to build ideas into reality.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {skillCategories.map((item) => (
+                <div
+                  key={item.category}
+                  className="glass-panel glass-panel-hover p-8 rounded-3xl skill-card relative overflow-hidden flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-2xl">{item.icon}</span>
+                      <span className="text-[10px] font-mono font-bold tracking-widest px-3 py-1 rounded-full bg-violet-500/10 border border-violet-400/20 text-violet-300 uppercase">
+                        {item.skills.length} TOOLS
+                      </span>
+                    </div>
+
+                    <h3 className="font-display font-bold text-lg text-white tracking-wider mb-6 pb-3 border-b border-white/10">
+                      {item.category}
+                    </h3>
+
+                    <div className="flex flex-wrap gap-2.5">
+                      {item.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3.5 py-2 text-xs font-medium rounded-xl bg-white/[0.04] border border-white/10 hover:border-violet-400/50 hover:bg-violet-600/20 text-gray-200 hover:text-white transition-all cursor-default"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-400">
+                    <span>Practiced & Applied</span>
+                    <span className="text-violet-400">✦</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 9. Experience Component
+    const Experience = () => {
+      const experiences = [
+        {
+          id: '01',
+          role: 'WEB DEVELOPMENT INTERN',
+          company: 'CodeBind Technologies — Chennai',
+          duration: '1 Month',
+          tag: 'WEB DEVELOPMENT',
+          bullets: [
+            'Hands-on web development experience.',
+            'Built basic web applications.',
+            'Worked with HTML, CSS and backend tools.',
+            'Learned development workflow and debugging.',
+          ],
+        },
+        {
+          id: '02',
+          role: 'DATA SCIENCE INTERN',
+          company: 'Scion Research and Development Center',
+          duration: '1 Month',
+          projectTitle: 'ClimatePulse: Data-Driven Environmental Insights',
+          tag: 'DATA SCIENCE',
+          description:
+            'A Data Science project focused on using environmental data to generate meaningful, data-driven insights.',
+        },
+      ];
+
+      return (
+        <section id="experience" className="relative py-28 bg-gradient-to-b from-[#0A080F] via-[#100D1C] to-[#0A080F] overflow-hidden">
+          <div className="absolute bottom-10 right-0 w-96 h-96 bg-purple-900/10 rounded-full blur-[130px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">03 / EXPERIENCE</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+                LEARNING THROUGH EXPERIENCE<span className="text-violet-400">.</span>
+              </h2>
+              <p className="text-sm text-gray-400 mt-2 max-w-xl">
+                Practical internships where I applied technical tools to real-world software and data workflows.
+              </p>
+            </div>
+
+            <div className="relative pl-6 sm:pl-10 border-l-2 border-violet-500/20 space-y-12 my-8">
+              {experiences.map((exp) => (
+                <div key={exp.id} className="relative group">
+                  <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-[#0A080F] border-2 border-violet-400 group-hover:border-violet-300 group-hover:bg-violet-500 shadow-[0_0_15px_rgba(167,139,250,0.5)] transition-all duration-300 flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-violet-300" />
+                  </div>
+
+                  <div className="glass-panel glass-panel-hover p-8 sm:p-10 rounded-3xl relative">
+                    <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                      <div>
+                        <div className="inline-block px-3 py-1 rounded-md bg-violet-500/10 border border-violet-400/20 text-violet-300 text-xs font-mono font-bold uppercase mb-2">
+                          {exp.tag} · INTERNSHIP {exp.id}
+                        </div>
+                        <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white">
+                          {exp.role}
+                        </h3>
+                        <p className="text-sm font-semibold text-violet-300/90 mt-1">{exp.company}</p>
+                      </div>
+
+                      <div className="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/10 text-xs font-mono font-semibold text-gray-300">
+                        ⏱ {exp.duration}
+                      </div>
+                    </div>
+
+                    {exp.bullets && (
+                      <ul className="mt-6 space-y-3 text-sm text-gray-300">
+                        {exp.bullets.map((bullet, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <span className="text-violet-400 mt-1">✦</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {exp.description && (
+                      <div className="mt-6 p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-3">
+                        <p className="text-xs font-mono font-bold text-violet-400 uppercase">PROJECT HIGHLIGHT</p>
+                        <h4 className="text-base font-bold text-white">{exp.projectTitle}</h4>
+                        <p className="text-sm text-gray-300 leading-relaxed">{exp.description}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 10. Projects Component
+    const Projects = () => {
+      const projects = [
+        {
+          id: '01',
+          title: 'DalkBot AI',
+          category: 'AI · CHATBOT · WEB APPLICATION',
+          description:
+            'An AI-powered personalized academic chatbot designed to provide guidance, learning support and intelligent assistance.',
+          tech: ['Python', 'AI', 'Chatbot Development', 'Prompt Engineering', 'API Integration', 'Streamlit'],
+          github: 'https://github.com/lakshmipradha2185-ui/dalkbotai',
+          featured: true,
+          accentGradient: 'from-violet-600/30 to-purple-800/20',
+          icon: '🤖',
+        },
+        {
+          id: '02',
+          title: 'ClimatePulse: Data-Driven Environmental Insights',
+          category: 'DATA SCIENCE · ENVIRONMENT',
+          description:
+            'A Data Science project focused on using environmental data to generate meaningful, data-driven insights.',
+          meta: 'Completed during Scion Research and Development Center',
+          tech: ['Data Science', 'Data Analysis', 'Environmental Insights', 'Python'],
+          featured: true,
+          accentGradient: 'from-emerald-600/25 to-teal-800/15',
+          icon: '🌱',
+        },
+        {
+          id: '03',
+          title: 'College Management System',
+          category: 'WEB DEVELOPMENT · DATABASE',
+          description:
+            'A web-based college management system developed to manage academic records and streamline administrative tasks.',
+          tech: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
+          featured: false,
+          accentGradient: 'from-blue-600/20 to-indigo-800/10',
+          icon: '🎓',
+        },
+        {
+          id: '04',
+          title: 'Data Analysis Using Excel',
+          category: 'DATA ANALYSIS',
+          description:
+            'A data analysis project involving data cleaning, analysis and visualization using Microsoft Excel to extract insights and support decision making.',
+          tech: ['Microsoft Excel', 'Data Cleaning', 'Data Visualization', 'Pivot Tables'],
+          featured: false,
+          accentGradient: 'from-green-600/20 to-emerald-800/10',
+          icon: '📊',
+        },
+        {
+          id: '05',
+          title: 'Web Development Project',
+          category: 'WEB DEVELOPMENT',
+          description:
+            'Responsive web pages created using HTML and CSS with focus on layout design and user experience.',
+          tech: ['HTML', 'CSS', 'Responsive Layout', 'UI Design'],
+          featured: false,
+          accentGradient: 'from-purple-600/20 to-violet-800/10',
+          icon: '🌐',
+        },
+      ];
+
+      return (
+        <section id="projects" className="relative py-28 bg-[#0A080F] overflow-hidden">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-violet-600/5 rounded-full blur-[150px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">04 / SELECTED WORK</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+                THINGS I'VE BUILT<span className="text-violet-400">.</span>
+              </h2>
+              <p className="text-sm text-gray-400 mt-2 max-w-xl">
+                A showcase of AI applications, data analytics projects, and web solutions I have constructed.
+              </p>
+            </div>
+
+            <div className="space-y-10">
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {projects.filter(p => p.featured).map((project) => (
+                  <div
+                    key={project.id}
+                    className="glass-panel glass-panel-hover p-8 rounded-3xl project-card relative overflow-hidden group border border-violet-500/30 flex flex-col justify-between"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.accentGradient} opacity-40 pointer-events-none`} />
+
+                    <div className="relative z-10 space-y-5">
+                      <div className="flex items-center justify-between">
+                        <span className="px-3.5 py-1 rounded-full bg-violet-500/20 border border-violet-400/30 text-xs font-mono font-bold text-violet-300">
+                          FEATURED {project.id}
+                        </span>
+                        <span className="text-3xl">{project.icon}</span>
+                      </div>
+
+                      <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-sm text-gray-200 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      {project.meta && (
+                        <p className="text-xs font-medium text-violet-300/90 italic">
+                          ✦ {project.meta}
+                        </p>
+                      )}
+
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {project.tech.map((t) => (
+                          <span key={t} className="px-2.5 py-1 text-xs font-medium rounded-lg bg-white/10 border border-white/10 text-violet-200">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="relative z-10 pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                      {project.github ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold tracking-wider rounded-xl bg-violet-600 hover:bg-violet-500 text-white transition-all shadow-lg shadow-violet-600/30"
+                        >
+                          <span>VIEW ON GITHUB</span>
+                          <span>↗</span>
+                        </a>
+                      ) : (
+                        <span className="px-4 py-2 rounded-lg bg-white/[0.04] border border-white/10 text-[11px] font-mono font-bold text-gray-400 uppercase tracking-wider">
+                          CASE STUDY COMING SOON
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {projects.filter(p => !p.featured).map((project) => (
+                  <div
+                    key={project.id}
+                    className="glass-panel glass-panel-hover p-7 rounded-3xl project-card relative overflow-hidden flex flex-col justify-between group"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.accentGradient} opacity-25 pointer-events-none`} />
+
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-xs font-mono font-bold text-violet-400">{project.category}</span>
+                        <span className="text-2xl">{project.icon}</span>
+                      </div>
+
+                      <h3 className="font-display font-bold text-xl text-white mb-3 group-hover:text-violet-300 transition-colors">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-xs text-gray-300 leading-relaxed mb-6">
+                        {project.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tech.map((t) => (
+                          <span key={t} className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-white/[0.04] border border-white/10 text-gray-300">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="relative z-10 pt-4 border-t border-white/5 flex items-center justify-between">
+                      <span className="inline-block px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-[10px] font-mono font-bold text-gray-400 uppercase tracking-wider">
+                        CASE STUDY COMING SOON
+                      </span>
+                      <span className="text-gray-500 group-hover:text-violet-400 transition-colors">↗</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 11. Certifications Component
+    const Certifications = () => {
+      const certs = [
+        { title: 'Network Security', provider: 'NPTEL', date: 'April 2026', icon: '🛡️' },
+        { title: 'Business Analysis & Process Management', provider: 'Coursera Project Network', date: 'January 2025', icon: '📈' },
+        { title: 'PwC Switzerland — Power BI Job Simulation', provider: 'Forage', date: 'January 2025', icon: '📊' },
+        { title: 'Build a Free Website with WordPress', provider: 'Coursera Project Network', date: 'August 2024', icon: '🌐' },
+        { title: 'Create a Simple Web Page with HTML in 10 Minutes', provider: 'Cognitive Class', date: 'August 2024', icon: '💻' },
+        { title: 'Getting Started with Microsoft Excel', provider: 'Coursera Project Network', date: 'July 2024', icon: '📑' },
+        { title: 'Introduction to Microsoft Excel', provider: 'Coursera Project Network', date: 'July 2024', icon: '📊' },
+        { title: 'Fundamentals of Generative AI', provider: 'GUVI', date: 'Learned', icon: '✨' },
+        { title: 'Microsoft Excel Project', provider: 'Coursera', date: 'Completed', icon: '📑' },
+        { title: 'Digital Design using Canva', provider: 'Coursera', date: 'Completed', icon: '🎨' },
+        { title: 'Workshop on Python Programming', provider: 'Technical Workshop', date: 'Completed', icon: '🐍' },
+        { title: 'Workshop on Artificial Intelligence', provider: 'Technical Workshop', date: 'Completed', icon: '🧠' },
+      ];
+
+      return (
+        <section id="certifications" className="relative py-28 bg-gradient-to-b from-[#0A080F] via-[#0F0C1A] to-[#0A080F] overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">05 / CERTIFICATIONS</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+                ALWAYS LEARNING<span className="text-violet-400">.</span>
+              </h2>
+              <p className="text-sm text-gray-400 mt-2 max-w-xl">
+                Verified courses, technical workshops, and hands-on simulation certifications.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certs.map((cert, index) => (
+                <div
+                  key={index}
+                  className="glass-panel glass-panel-hover p-6 rounded-2xl relative flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl">{cert.icon}</span>
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-violet-300">
+                        {cert.date}
+                      </span>
+                    </div>
+
+                    <h3 className="font-display font-bold text-base text-white group-hover:text-violet-300 transition-colors leading-snug mb-2">
+                      {cert.title}
+                    </h3>
+
+                    <p className="text-xs font-medium text-gray-400">
+                      {cert.provider}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-400">
+                    <span>Verified Learning</span>
+                    <span className="text-violet-400 font-bold">✓</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 12. Education Component
+    const Education = () => {
+      return (
+        <section id="education" className="relative py-28 bg-[#0A080F] overflow-hidden">
+          <div className="absolute top-1/2 right-10 w-96 h-96 bg-violet-600/10 rounded-full blur-[130px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">06 / EDUCATION</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+                MY FOUNDATION<span className="text-violet-400">.</span>
+              </h2>
+              <p className="text-sm text-gray-400 mt-2 max-w-xl">
+                Academic degree program specializing in Artificial Intelligence & Data Science.
+              </p>
+            </div>
+
+            <div className="glass-panel glass-panel-hover p-8 sm:p-12 rounded-3xl relative overflow-hidden max-w-4xl border border-violet-500/20">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-8 space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-500/10 border border-violet-400/20 text-xs font-mono font-bold text-violet-300 uppercase">
+                    🎓 UNDERGRADUATE DEGREE PROGRAM
+                  </div>
+
+                  <h3 className="font-display font-extrabold text-2xl sm:text-4xl text-white leading-tight">
+                    B.Tech Artificial Intelligence and Data Science
+                  </h3>
+
+                  <p className="text-lg font-semibold text-violet-300/90">
+                    PRIST University
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-gray-300 pt-2">
+                    <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10">
+                      📅 DURATION: 2023 — 2027
+                    </span>
+                    <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10">
+                      📍 LOCATION: India
+                    </span>
+                  </div>
+                </div>
+
+                <div className="md:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md text-center">
+                  <span className="text-xs font-mono font-bold tracking-widest text-violet-400 uppercase mb-1">CGPA</span>
+                  <div className="font-display font-black text-5xl text-white gradient-accent-text my-1">
+                    8.9
+                  </div>
+                  <span className="text-xs text-gray-400">PRIST University</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 13. Difference Component
+    const Difference = () => {
+      const pillars = [
+        {
+          num: '01',
+          title: 'I BUILD',
+          desc: 'I turn ideas into practical digital solutions, building clean code and usable web applications.',
+        },
+        {
+          num: '02',
+          title: 'I EXPLORE',
+          desc: 'I continuously explore technology, data, and emerging AI tools to expand my skills.',
+        },
+        {
+          num: '03',
+          title: 'I CREATE',
+          desc: 'I combine technical development with visual design creativity for engaging user experiences.',
+        },
+        {
+          num: '04',
+          title: 'I CONNECT',
+          desc: 'I value clear communication, team collaboration, and building meaningful digital experiences.',
+        },
+      ];
+
+      return (
+        <section className="relative py-28 bg-[#0A080F] overflow-hidden border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">MY VALUE PROPOSITION</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+                WHAT MAKES ME DIFFERENT<span className="text-violet-400">.</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {pillars.map((pillar) => (
+                <div
+                  key={pillar.num}
+                  className="glass-panel glass-panel-hover p-10 rounded-3xl relative overflow-hidden group"
+                >
+                  <div className="text-6xl font-display font-black text-violet-500/15 group-hover:text-violet-400/30 transition-colors mb-4">
+                    {pillar.num}
+                  </div>
+
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-3 tracking-wide">
+                    {pillar.title}
+                  </h3>
+
+                  <p className="text-base text-gray-300 leading-relaxed">
+                    {pillar.desc}
+                  </p>
+
+                  <div className="mt-6 w-12 h-1 bg-violet-500/30 group-hover:w-24 group-hover:bg-violet-400 transition-all duration-500 rounded-full" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 14. Resume Component
+    const Resume = ({ onOpenResumeModal }) => {
+      return (
+        <section id="resume" className="relative py-28 bg-gradient-to-b from-[#0A080F] via-[#120F21] to-[#0A080F] overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+          <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center">
+            <div className="glass-panel p-10 sm:p-16 rounded-3xl relative border border-violet-500/20 shadow-2xl">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-400/20 text-xs font-mono font-bold text-violet-300 uppercase mb-6">
+                📄 CURRICULUM VITAE
+              </div>
+
+              <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-tight mb-4">
+                MY RESUME<span className="text-violet-400">.</span>
+              </h2>
+
+              <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                A snapshot of my education, skills, projects and professional journey. Available for inline viewing or direct PDF download.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-5">
+                <button
+                  onClick={onOpenResumeModal}
+                  className="px-8 py-4 text-xs font-bold tracking-widest uppercase rounded-xl bg-violet-600 hover:bg-violet-500 text-white transition-all duration-300 shadow-[0_0_30px_rgba(139,92,246,0.4)] flex items-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                  <span>VIEW RESUME</span>
+                </button>
+
+                <a
+                  href="resume.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 text-xs font-bold tracking-widest uppercase rounded-xl bg-white/[0.05] border border-white/10 hover:border-violet-400 text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  <span>DOWNLOAD RESUME</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 15. Contact Component
+    const Contact = () => {
+      const [formData, setFormData] = React.useState({ name: '', email: '', message: '' });
+      const [submitted, setSubmitted] = React.useState(false);
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!formData.name || !formData.email || !formData.message) return;
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', message: '' });
+        }, 6000);
+      };
+
+      return (
+        <section id="contact" className="relative py-28 bg-[#0A080F] overflow-hidden">
+          <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="mb-16">
+              <p className="text-xs font-bold tracking-widest text-violet-400 uppercase mb-2">07 / CONTACT</p>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight">
+                LET'S CREATE <br />
+                <span className="gradient-text">SOMETHING GREAT.</span>
+              </h2>
+              <p className="text-base text-gray-300 mt-4 max-w-xl">
+                Have an idea, opportunity or project in mind? Let's connect and explore how we can work together.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-5 space-y-6">
+                <a
+                  href="mailto:lakshmipradha2185@gmail.com"
+                  className="glass-panel glass-panel-hover p-6 rounded-2xl flex items-center gap-5 group block"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-400/20 text-violet-300 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                    ✉️
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono font-bold text-violet-400 uppercase">EMAIL ME</p>
+                    <p className="text-sm font-semibold text-white group-hover:text-violet-300 transition-colors">
+                      lakshmipradha2185@gmail.com
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="tel:7548872516"
+                  className="glass-panel glass-panel-hover p-6 rounded-2xl flex items-center gap-5 group block"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-400/20 text-violet-300 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                    📞
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono font-bold text-violet-400 uppercase">CALL / PHONE</p>
+                    <p className="text-sm font-semibold text-white group-hover:text-violet-300 transition-colors">
+                      +91 7548872516
+                    </p>
+                  </div>
+                </a>
+
+                <div className="pt-4 space-y-4">
+                  <a
+                    href="https://www.linkedin.com/in/lakshmi-pradha/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-violet-400 text-white font-bold text-xs tracking-widest uppercase flex items-center justify-between transition-all group"
+                  >
+                    <span>VIEW LINKEDIN</span>
+                    <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                  </a>
+
+                  <a
+                    href="https://github.com/lakshmipradha2185-ui/dalkbotai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-violet-400 text-white font-bold text-xs tracking-widest uppercase flex items-center justify-between transition-all group"
+                  >
+                    <span>VIEW GITHUB</span>
+                    <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 glass-panel p-8 sm:p-10 rounded-3xl relative border border-white/10">
+                <h3 className="font-display font-bold text-2xl text-white mb-6">
+                  Send Me A Message
+                </h3>
+
+                {submitted ? (
+                  <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-center space-y-3 animate-fadeIn">
+                    <div className="text-3xl">✨</div>
+                    <h4 className="font-bold text-lg text-white">Thank You for Reaching Out!</h4>
+                    <p className="text-xs text-gray-300">
+                      Your message has been logged. I'll get back to you promptly at your email address.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label className="block text-xs font-mono font-semibold text-gray-300 uppercase mb-2">YOUR NAME</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Enter your name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-violet-400 focus:bg-white/[0.06] text-white placeholder-gray-500 text-sm focus:outline-none transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-mono font-semibold text-gray-300 uppercase mb-2">YOUR EMAIL</label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="Enter your email address"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-violet-400 focus:bg-white/[0.06] text-white placeholder-gray-500 text-sm focus:outline-none transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-mono font-semibold text-gray-300 uppercase mb-2">YOUR MESSAGE</label>
+                      <textarea
+                        rows="4"
+                        required
+                        placeholder="Tell me about your idea, opportunity or project..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 focus:border-violet-400 focus:bg-white/[0.06] text-white placeholder-gray-500 text-sm focus:outline-none transition-all resize-none"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-4 text-xs font-bold tracking-widest uppercase rounded-xl bg-violet-600 hover:bg-violet-500 text-white transition-all shadow-lg shadow-violet-600/30 flex items-center justify-center gap-2 group"
+                    >
+                      <span>SEND MESSAGE</span>
+                      <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // 16. Footer Component
+    const Footer = () => {
+      return (
+        <footer className="relative py-16 bg-[#050408] border-t border-white/10 overflow-hidden text-gray-400 text-xs">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10 items-center">
+              <div className="md:col-span-6 space-y-3">
+                <div className="font-display font-black text-3xl text-white tracking-tighter">
+                  LP<span className="text-violet-400">.</span>
+                </div>
+                <p className="text-sm font-semibold text-white">G. Lakshmi Pradha</p>
+                <p className="text-xs text-gray-400 max-w-sm">
+                  Building ideas into digital experiences. Developer and creative technologist.
+                </p>
+              </div>
+
+              <div className="md:col-span-6 flex flex-wrap gap-6 md:justify-end font-medium">
+                <a href="#about" className="hover:text-violet-300 transition-colors">About</a>
+                <a href="#skills" className="hover:text-violet-300 transition-colors">Skills</a>
+                <a href="#experience" className="hover:text-violet-300 transition-colors">Experience</a>
+                <a href="#projects" className="hover:text-violet-300 transition-colors">Projects</a>
+                <a href="#certifications" className="hover:text-violet-300 transition-colors">Certifications</a>
+                <a href="#education" className="hover:text-violet-300 transition-colors">Education</a>
+                <a href="#contact" className="hover:text-violet-300 transition-colors">Contact</a>
+              </div>
+            </div>
+
+            <div className="pt-8 flex flex-wrap items-center justify-between gap-4 text-gray-400">
+              <p>© 2026 G. Lakshmi Pradha. All rights reserved.</p>
+
+              <div className="flex items-center gap-6">
+                <a
+                  href="https://www.linkedin.com/in/lakshmi-pradha/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-violet-300 transition-colors"
+                >
+                  LinkedIn ↗
+                </a>
+                <a
+                  href="https://github.com/lakshmipradha2185-ui/dalkbotai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-violet-300 transition-colors"
+                >
+                  GitHub ↗
+                </a>
+                <a href="mailto:lakshmipradha2185@gmail.com" className="hover:text-violet-300 transition-colors">
+                  Email ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      );
+    };
+
+    // 17. Main App Assembly with Active Section Observer
+    const App = () => {
+      const [isResumeModalOpen, setIsResumeModalOpen] = React.useState(false);
+      const [activeSection, setActiveSection] = React.useState('home');
+
+      React.useEffect(() => {
+        const sections = document.querySelectorAll('section[id]');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActiveSection(entry.target.id);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+        return () => observer.disconnect();
+      }, []);
+
+      return (
+        <div className="relative min-h-screen bg-[#0A080F] text-gray-100 font-sans selection:bg-purple-500/30 selection:text-violet-200 antialiased">
+          <CustomCursor />
+          <Navbar onOpenResumeModal={() => setIsResumeModalOpen(true)} activeSection={activeSection} />
+
+          <main>
+            <Hero onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+            <About />
+            <BrandStatement />
+            <Skills />
+            <Experience />
+            <Projects />
+            <Certifications />
+            <Education />
+            <Difference />
+            <Resume onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+            <Contact />
+          </main>
+
+          <Footer />
+          <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />
+        </div>
+      );
+    };
+
+    // Render Application
+    const rootElement = document.getElementById('root');
+    if (rootElement) {
+      const root = ReactDOM.createRoot(rootElement);
+      root.render(React.createElement(App));
+    }
+
+  </script>
+</body>
+</html>

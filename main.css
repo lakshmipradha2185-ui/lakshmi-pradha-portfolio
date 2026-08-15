@@ -1,0 +1,127 @@
+/* Global Custom Styles for G. Lakshmi Pradha Portfolio */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08070B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.25);
+  border-radius: 4px;
+  border: 2px solid #08070B;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.5);
+}
+
+/* Custom Interactive Cursor Styling */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #C4B5FD;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  box-shadow: 0 0 10px rgba(196, 181, 253, 0.8);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(167, 139, 250, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s;
+  backdrop-filter: blur(1px);
+}
+
+/* Cursor Hover Expanded State */
+body.hovering-clickable .custom-cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(196, 181, 253, 0.9);
+  background-color: rgba(167, 139, 250, 0.08);
+}
+
+body.hovering-clickable .custom-cursor-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #A78BFA;
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Glassmorphism Card Panels */
+.glass-panel {
+  background: rgba(15, 14, 23, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-hover {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 20, 38, 0.8);
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 0 25px 60px rgba(139, 92, 246, 0.15), 0 0 30px rgba(167, 139, 250, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Ambient Radial Background Glows */
+.ambient-glow-top {
+  background: radial-gradient(circle at 50% -20%, rgba(139, 92, 246, 0.18), transparent 70%);
+}
+
+.ambient-glow-purple {
+  background: radial-gradient(circle at 80% 50%, rgba(167, 139, 250, 0.12), transparent 60%);
+}
+
+/* Typography Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 40%, #C4B5FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-accent-text {
+  background: linear-gradient(135deg, #C4B5FD 0%, #A78BFA 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grain texture overlay */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
